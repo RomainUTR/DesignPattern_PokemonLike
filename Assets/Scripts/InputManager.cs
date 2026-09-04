@@ -16,8 +16,6 @@ public class InputManager : MonoBehaviour
     {
         Vector2 v = value.Get<Vector2>();
 
-        Debug.Log(v);
-
         if (v == Vector2.up)
         {
             invoker.ExecuteCommand(new MoveUpCommand(Player));
