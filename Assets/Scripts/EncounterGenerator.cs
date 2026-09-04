@@ -16,4 +16,6 @@ public abstract class EncounterGenerator : MonoBehaviour
     //[Header(""Output"")]
 
     public abstract void DecideRandomEncounter(); 
+
+    protected abstract IEncounter CreateEncounter(EncounterType encounterType);
 }
