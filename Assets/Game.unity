@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 822146427}
   - component: {fileID: 822146426}
   m_Layer: 0
-  m_Name: Square
+  m_Name: WildEncounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,6 +273,8 @@ MonoBehaviour:
   EncounterType: 0
   PokemonDatas:
   - {fileID: 11400000, guid: 6b1f90d1aa2d3d748952a5443c6adf25, type: 2}
+  - {fileID: 11400000, guid: 96409691d54f09944b91ce6cc3ee0f10, type: 2}
+  ShinyChancePercentage: 2
 --- !u!1 &975271563
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,7 +604,7 @@ GameObject:
   - component: {fileID: 1964891924}
   - component: {fileID: 1964891923}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: TrainerEncounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

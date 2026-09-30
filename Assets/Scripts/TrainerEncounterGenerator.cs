@@ -5,17 +5,11 @@ public class TrainerEncounterGenerator : EncounterGenerator
 {
     public SSO_TrainerData[] TrainerDatas;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override IEncounter CreateEncounter(EncounterType encounterType)
     {
-        Debug.Log("Trigger Encounter Zone : " + EncounterType);
-        if (collision.CompareTag("Player"))
-        {
-            DecideRandomEncounter();
-        }
-    }
-
-    public override void DecideRandomEncounter()
-    {
-        Debug.Log(TrainerDatas.GetRandom().Name);
+        SSO_TrainerData drawnTrainer = TrainerDatas.GetRandom();
+        Debug.Log("Dresseur pioché : " + drawnTrainer.Name);
+        
+        return new TrainerEncounter(drawnTrainer);
     }
 }

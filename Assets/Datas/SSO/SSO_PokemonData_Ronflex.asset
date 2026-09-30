@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0adf424a57bd4af43b52432da06a9091, type: 3}
-  m_Name: SSO_PokemonData
+  m_Name: SSO_PokemonData_Ronflex
   m_EditorClassIdentifier: Assembly-CSharp::SSO_PokemonData
-  Name: Pikachu
-  Level: 5
+  Name: Ronflex
+  Level: 10
   NormalSprite: {fileID: -6431535214445818884, guid: 9b2e6d254320e7343bf4dd516e50dd34, type: 3}
   ShinySprite: {fileID: 6894999169920593895, guid: fdf21306deae49b408920143437c8152, type: 3}
-  BaseHP: 40
-  BaseDamage: 7
+  BaseHP: 79
+  BaseDamage: 5

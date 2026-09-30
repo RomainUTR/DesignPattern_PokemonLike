@@ -5,17 +5,14 @@ public class WildEncounterGenerator : EncounterGenerator
 {
     public SSO_PokemonData[] PokemonDatas;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Trigger Encounter Zone : " + EncounterType);
-        if (collision.CompareTag("Player"))
-        {
-            DecideRandomEncounter();
-        }
-    }
+    [Range(0f, 100f)] public float ShinyChancePercentage = 1f;
 
-    public override void DecideRandomEncounter()
+    protected override IEncounter CreateEncounter(EncounterType encounterType)
     {
-        Debug.Log(PokemonDatas.GetRandom().Name);
+        SSO_PokemonData drawnPokemon = PokemonDatas.GetRandom();
+        bool isShiny = Random.Range(0f, 100f) <= ShinyChancePercentage;
+        Debug.Log("Pokémon sauvage pioché : " + drawnPokemon.Name);
+        
+        return new WildEncounter(drawnPokemon, isShiny);
     }
 }
