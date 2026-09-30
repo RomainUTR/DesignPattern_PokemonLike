@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Michel
   Sprite: {fileID: -7108488922690875693, guid: 5b843ab5a0617914d8df3457c24b81a5, type: 3}
   Taunt: You already lose !
-  Pokemon: {fileID: 11400000, guid: 6b1f90d1aa2d3d748952a5443c6adf25, type: 2}
+  Pokemon: {fileID: 11400000, guid: 96409691d54f09944b91ce6cc3ee0f10, type: 2}

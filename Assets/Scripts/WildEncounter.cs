@@ -24,11 +24,36 @@ public class WildEncounter : IEncounter
         }
     }
 
-    public void Attack() {}
-    public void Heal() {}
-    public void EnemyAttack() {}
-    public void EndEncounter() {}
-    
-    public void Capture() {}
-    public void Flee() {}
+    public void Attack()
+    {
+        PkmnHp -= 10; // Valeur arbitraire
+        Debug.Log($"Tu attaques le Pokémon sauvage ! Il lui reste {PkmnHp} HP !");
+    }
+
+    public void Heal()
+    {
+        Debug.Log("Tu utilises une potion et récupères tes PV !");
+    }
+
+    public void EnemyAttack()
+    {
+        Debug.Log($"Le Pokémon sauvage t'attaque et te fais {pokemonData.BaseDamage} dégâts");
+    }
+
+    public void EndEncounter()
+    {
+        Debug.Log("Fin du combat avec le Pokémon sauvage.");
+    }
+
+    public void Capture()
+    {
+        Debug.Log($"Tu lances une Pokéball... {pokemonData.Name} est capturé !");
+        EndEncounter();
+    }
+
+    public void Flee()
+    {
+        Debug.Log("Tu prends la fuite !"); 
+        EndEncounter();
+    }
 }
