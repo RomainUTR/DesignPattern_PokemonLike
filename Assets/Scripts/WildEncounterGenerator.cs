@@ -7,12 +7,15 @@ public class WildEncounterGenerator : EncounterGenerator
 
     [Range(0f, 100f)] public float ShinyChancePercentage = 1f;
 
-    protected override IEncounter CreateEncounter(SSO_PokemonData playerData)
+    [Header("Events")]
+    public RSE_OnPokemonCapture CaptureEvent;
+    public RSE_OnShinyFound ShinyEvent;
+
+    protected override IEncounter CreateEncounter(SSO_PokemonData playerPokemon)
     {
         SSO_PokemonData drawnPokemon = PokemonDatas.GetRandom();
         bool isShiny = Random.Range(0f, 100f) <= ShinyChancePercentage;
-        Debug.Log("Pokémon sauvage pioché : " + drawnPokemon.Name);
         
-        return new WildEncounter(drawnPokemon, isShiny, playerData);
+        return new WildEncounter(drawnPokemon, isShiny, playerPokemon, CaptureEvent, ShinyEvent);
     }
 }

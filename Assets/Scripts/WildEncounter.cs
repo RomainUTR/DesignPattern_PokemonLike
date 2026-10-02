@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class WildEncounter : IEncounter
 {
-    [SerializeField] private RSE_OnPokemonCapture OnPokemonCapture;
-    [SerializeField] private RSE_OnShinyFound OnShinyFound;
-    
     public int EnemyHp { get; set; }
     public string EnemyName { get; private set; }
     public Sprite EnemySprite { get; private set; } 
@@ -19,10 +16,16 @@ public class WildEncounter : IEncounter
     private SSO_PokemonData _wildData;
     private SSO_PokemonData _playerData;
     
-    public WildEncounter(SSO_PokemonData wildData, bool isShiny, SSO_PokemonData playerData)
+    private RSE_OnPokemonCapture OnPokemonCapture;
+    private RSE_OnShinyFound OnShinyFound;
+    
+    public WildEncounter(SSO_PokemonData wildData, bool isShiny, SSO_PokemonData playerData, RSE_OnPokemonCapture captureEvent, RSE_OnShinyFound shinyEvent)
     {
         _wildData = wildData;
         _playerData = playerData;
+        
+        OnPokemonCapture = captureEvent;
+        OnShinyFound = shinyEvent;
         
         EnemyHp = wildData.BaseHP;
         EnemyName = wildData.Name;
