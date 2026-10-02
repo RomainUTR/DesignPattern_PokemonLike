@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SSO_TrainerData
   m_EditorClassIdentifier: Assembly-CSharp::SSO_TrainerData
   Name: Michel
-  Sprite: {fileID: -7108488922690875693, guid: 5b843ab5a0617914d8df3457c24b81a5, type: 3}
+  Sprite: {fileID: 21300000, guid: 5b843ab5a0617914d8df3457c24b81a5, type: 3}
   Taunt: You already lose !
   Pokemon: {fileID: 11400000, guid: 96409691d54f09944b91ce6cc3ee0f10, type: 2}

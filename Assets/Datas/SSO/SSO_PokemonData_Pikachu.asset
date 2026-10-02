@@ -16,5 +16,6 @@ MonoBehaviour:
   Level: 5
   NormalSprite: {fileID: 21300000, guid: 9b2e6d254320e7343bf4dd516e50dd34, type: 3}
   ShinySprite: {fileID: 21300000, guid: fdf21306deae49b408920143437c8152, type: 3}
+  PlayableSprite: {fileID: 21300000, guid: cbc6d681ff7f9b840b4a1713c73b5349, type: 3}
   BaseHP: 40
   BaseDamage: 7

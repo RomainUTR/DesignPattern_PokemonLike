@@ -1,33 +1,57 @@
+using System;
 using UnityEngine;
 
 public class WildEncounter : IEncounter
 {
-    public int PkmnHp { get; set; }
-    private SSO_PokemonData pokemonData;
-    private bool isShiny;
+    [SerializeField] private RSE_OnPokemonCapture OnPokemonCapture;
+    [SerializeField] private RSE_OnShinyFound OnShinyFound;
+    
+    public int EnemyHp { get; set; }
+    public string EnemyName { get; private set; }
+    public Sprite EnemySprite { get; private set; } 
+    
+    public int PlayerHp { get; set; }
+    public string PlayerName { get; private set; }
+    public Sprite PlayerSprite { get; private set; }
 
-    public WildEncounter(SSO_PokemonData data, bool shinyFlag)
+    public event Action OnEncounterEnded;
+    
+    private SSO_PokemonData _wildData;
+    private SSO_PokemonData _playerData;
+    
+    public WildEncounter(SSO_PokemonData wildData, bool isShiny, SSO_PokemonData playerData)
     {
-        pokemonData = data;
-        PkmnHp = pokemonData.BaseHP;
-        isShiny = shinyFlag;
+        _wildData = wildData;
+        _playerData = playerData;
         
-        Sprite spriteToUse = isShiny ? pokemonData.ShinySprite : pokemonData.NormalSprite;
-        
+        EnemyHp = wildData.BaseHP;
+        EnemyName = wildData.Name;
+        EnemySprite = isShiny ? wildData.ShinySprite : wildData.NormalSprite;
+
+        PlayerHp = playerData.BaseHP;
+        PlayerName = playerData.Name;
+        PlayerSprite = playerData.PlayableSprite;
+
         if (isShiny)
         {
-            Debug.Log($"✨ INCROYABLE ! Un {pokemonData.Name} SHINY sauvage apparaît avec {PkmnHp} HP ! ✨");
-        }
-        else
-        {
-            Debug.Log($"Un {pokemonData.Name} sauvage apparaît avec {PkmnHp} HP !");
+            OnShinyFound?.Raise();
         }
     }
 
     public void Attack()
     {
-        PkmnHp -= 10; // Valeur arbitraire
-        Debug.Log($"Tu attaques le Pokémon sauvage ! Il lui reste {PkmnHp} HP !");
+        EnemyHp -= _playerData.BaseDamage;
+        Debug.Log($"Tu attaques le Pokémon sauvage ! Il lui reste {EnemyHp} HP !");
+        
+        if (EnemyHp <= 0)
+        {
+            Debug.Log("Le Pokémon adverse est K.O. ! Tu as gagné !");
+            EndEncounter();
+        }
+        else
+        {
+            EnemyAttack(); 
+        }
     }
 
     public void Heal()
@@ -37,17 +61,19 @@ public class WildEncounter : IEncounter
 
     public void EnemyAttack()
     {
-        Debug.Log($"Le Pokémon sauvage t'attaque et te fais {pokemonData.BaseDamage} dégâts");
+        Debug.Log($"Le Pokémon sauvage t'attaque et te fais {_wildData.BaseDamage} dégâts");
     }
 
     public void EndEncounter()
     {
         Debug.Log("Fin du combat avec le Pokémon sauvage.");
+        OnEncounterEnded?.Invoke();
     }
 
     public void Capture()
     {
-        Debug.Log($"Tu lances une Pokéball... {pokemonData.Name} est capturé !");
+        Debug.Log($"Tu lances une Pokéball... {_wildData.Name} est capturé !");
+        OnPokemonCapture?.Raise(_wildData);
         EndEncounter();
     }
 
