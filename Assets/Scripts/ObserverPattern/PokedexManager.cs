@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PokedexManager : MonoBehaviour
 {
-    [SerializeField] private List<SSO_PokemonData> PokedexData = new List<SSO_PokemonData>();
+    [SerializeField] private List<IPokemonData> PokedexData = new List<IPokemonData>();
     [SerializeField] private RSE_OnPokemonCapture OnPokemonCapture;
 
     private void OnEnable()
@@ -23,12 +23,12 @@ public class PokedexManager : MonoBehaviour
         }
     }
 
-    private void HandleCapture(SSO_PokemonData pokemonData)
+    private void HandleCapture(IPokemonData pokemonData)
     {
         if (!PokedexData.Contains(pokemonData))
         {
             PokedexData.Add(pokemonData);
-            Debug.Log($"Pokémon découvert ! {pokemonData.name} ajouté à votre Pokédex !");
+            Debug.Log($"Pokémon découvert ! {pokemonData.Name} ajouté à votre Pokédex !");
         }
         else
         {

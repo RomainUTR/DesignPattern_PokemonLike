@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6f14241bf1f3741b70962ff72d0ba6, type: 3}
+  m_Name: SSO_Gen2_PokemonData_Steelix
+  m_EditorClassIdentifier: Assembly-CSharp::SSO_Gen2_PokemonData
+  Name: Steelix
+  Level: 50
+  Type: 16
+  NormalSprite: {fileID: 21300000, guid: 9ea43eebea329f34fbab6199b75e018f, type: 3}
+  ShinySprite: {fileID: 21300000, guid: a3f9570dab9d211468d343eece771d32, type: 3}
+  PlayableSprite: {fileID: 21300000, guid: d8a0ff4f1c766064d80eeb2945414ba8, type: 3}
+  BaseHP: 100
+  BaseDamage: 10

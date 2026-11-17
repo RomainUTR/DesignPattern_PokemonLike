@@ -62,6 +62,7 @@ public class BattleUIManager : MonoBehaviour
         
         if (_activeEncounter is WildEncounter wildEncounter)
         {
+            TrainerSprite.gameObject.SetActive(false);
             EnemyPokemonSprite.sprite = _activeEncounter.EnemySprite;
             EnemyPokemonName.text = _activeEncounter.EnemyName;
             

@@ -15,11 +15,11 @@ public class TrainerEncounter : IEncounter
     public Sprite TrainerSprite { get; private set; }
     
     private SSO_TrainerData _trainerData;
-    private SSO_PokemonData _playerData;
+    private IPokemonData _playerData;
     
     public event Action OnEncounterEnded;
     
-    public TrainerEncounter(SSO_TrainerData trainerData, SSO_PokemonData playerData)
+    public TrainerEncounter(SSO_TrainerData trainerData, IPokemonData playerData)
     {
         _trainerData = trainerData;
         _playerData = playerData;

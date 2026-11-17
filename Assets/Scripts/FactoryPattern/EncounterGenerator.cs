@@ -19,10 +19,10 @@ public abstract class EncounterGenerator : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("The player dont have Player script ou no PokemonData");
+                Debug.LogWarning("The player dont have Player script or no PokemonData");
             }
         }
     }
     
-    protected abstract IEncounter CreateEncounter(SSO_PokemonData playerPokemon);
+    protected abstract IEncounter CreateEncounter(IPokemonData playerPokemon);
 }

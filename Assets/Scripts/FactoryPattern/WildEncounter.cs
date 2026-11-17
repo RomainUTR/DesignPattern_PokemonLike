@@ -13,13 +13,13 @@ public class WildEncounter : IEncounter
 
     public event Action OnEncounterEnded;
     
-    private SSO_PokemonData _wildData;
-    private SSO_PokemonData _playerData;
+    private IPokemonData _wildData;
+    private IPokemonData _playerData;
     
     private RSE_OnPokemonCapture OnPokemonCapture;
     private RSE_OnShinyFound OnShinyFound;
     
-    public WildEncounter(SSO_PokemonData wildData, bool isShiny, SSO_PokemonData playerData, RSE_OnPokemonCapture captureEvent, RSE_OnShinyFound shinyEvent)
+    public WildEncounter(IPokemonData wildData, bool isShiny, IPokemonData playerData, RSE_OnPokemonCapture captureEvent, RSE_OnShinyFound shinyEvent)
     {
         _wildData = wildData;
         _playerData = playerData;
